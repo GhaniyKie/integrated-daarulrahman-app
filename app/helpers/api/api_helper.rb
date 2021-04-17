@@ -23,6 +23,7 @@ module API::APIHelper
     end
 
     # Mengembalikan nilai true jika 'jti' hasil decode dari header berada dalam database JwtDenylist
+    # Atau nilai false jika tidak terdapat di database
     def token_was_denied?(decode)
         JwtDenylist.find_by_jti(decode['jti'])
     end
