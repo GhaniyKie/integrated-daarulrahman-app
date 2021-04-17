@@ -3,7 +3,7 @@ module ErrorResponseActions
         authorization_error
         resource_not_found
         page_not_found
-        not_implmented
+        not_implemented
         route_not_found
         method_not_allowed].freeze
 
@@ -28,7 +28,7 @@ module ErrorResponseActions
     #     end
     # end
     
-    # def not_implmented(allowed_methods)
+    # def not_implemented(allowed_methods)
     #     method_not_allowed(allowed_methods, 'Not Implemented', 501)
     # end
     
