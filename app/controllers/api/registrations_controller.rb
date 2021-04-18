@@ -23,7 +23,7 @@ class API::RegistrationsController < Devise::RegistrationsController
                     message: "Sesi login ini akan kadaluarsa pada pukul #{Time.at(payload[:exp]).strftime('%k:%M:%S')}"
             },      status: 200
         else
-            render json: { error: user.errors.full_messages }, status: 400
+            render json: user.errors.full_messages, status: 422 # Unprocessable Entity
         end
     end
 
