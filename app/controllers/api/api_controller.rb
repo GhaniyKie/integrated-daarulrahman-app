@@ -1,6 +1,8 @@
 class API::APIController < ApplicationController
     before_action :authorize_request
 
+    include API::APIHelper
+
     private
 
     def authorize_request
@@ -12,11 +14,11 @@ class API::APIController < ApplicationController
             auth_token = header_authorization.split(' ').last
 
             begin
-                @decode_token = API::JsonWebToken.decode(auth_token)
-                @current_user_id = @decode_token['id']
+                decode_token = API::JsonWebToken.decode(auth_token)
+                @current_user_id = decode_token['id']
                 
-                # Raise 401 jika hasil dari token_was_denied adalah true
-                render json: '401 Unauthorized', status: 401 if token_was_denied?
+                # Raise 401 jika hasil dari token_was_denied? adalah true
+                render json: '401 Unauthorized', status: 401 if token_was_denied?(decode_token)
             rescue  JWT::ExpiredSignature 
                 render json: 'Your session has expired, please Login to continue', status: 401
             rescue  JWT::VerificationError,
@@ -24,15 +26,6 @@ class API::APIController < ApplicationController
                 render json: '401 Unauthorized', status: 401
             end
         end
-    end
-
-    def header_authorization
-        request.headers['Authorization']
-    end
-
-    def token_was_denied?
-        # Mengembalikan nilai true jika 'jti' hasil decode dari header berada dalam database JwtDenylist
-        JwtDenylist.find_by_jti(@decode_token['jti'])
     end
 
     def authenticate_user!(options = {})

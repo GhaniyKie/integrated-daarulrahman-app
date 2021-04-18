@@ -1,7 +1,10 @@
 class API::SessionsController < Devise::SessionsController
     skip_before_action :verify_signed_out_user, if: :json_request?
     skip_before_action :verify_authenticity_token
+
+    include API::APIHelper
     
+    # Method create ini digunakan untuk membuat sesi (proses login user)
     def create
         user = User.find_by_email(params[:email])
   
@@ -27,19 +30,9 @@ class API::SessionsController < Devise::SessionsController
             render json: "Email atau Password salah", status: 401      
         end
     end
-  
-    def destroy
-        # TODO:
-        
-        # Cari cara supaya get Token, terus dimasukin ke jwt_blacklist                                        wes
-        # Token ditambahin jti, sama iat                                                                      wes
-        # Jangan lupa juga di JsonWebToken.rb, ubah juga fungsinya.                                           wes
-        # Caranya ada di kertas, pahamin lagi nanti                                                           enggeh
-        # Cara identifikasi user yang login bisa pake email dan id.                                           PR
-        # Token dipecah, dicari ID sama Email, kalo sama dengan user yang login, destroy session nya          PR
-        # iat dan exp masuk ke database. Buat supaya session create (login) baca data di tabel jwt_blacklist  wes
-        # Kasih exception buat orang yang gak login pake 401 (Gak login tapi maksa logout)                    Gakmungkin
-        
+
+    # Method destroy digunakan untuk merevoke otentikasi pengguna (proses logout)
+    def destroy        
         if header_authorization.present?
             token = header_authorization.split(' ').last
             render json: 'Logout berhasil', status: 200
@@ -48,21 +41,5 @@ class API::SessionsController < Devise::SessionsController
             render json: 'Anda harus login terlebih dahulu', status: :unprocessable_entity
         end
     end
-  
-    private
-    
-    def process_to_denylist(token)
-        decode_token = API::JsonWebToken.decode(token)
-        jti_payload = {
-            jti: decode_token['jti'],
-            expired_at: Time.at(decode_token['exp'])
-        }
-    
-        JwtDenylist.create!(jti_payload)
-    end
 
-    # Method untuk mendapatkan header Autorisasi
-    def header_authorization
-        request.headers['Authorization']
-    end
 end
