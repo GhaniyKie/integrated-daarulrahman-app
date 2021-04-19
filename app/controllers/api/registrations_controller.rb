@@ -26,11 +26,11 @@ class API::RegistrationsController < Devise::RegistrationsController
                         message: "Sesi login ini akan kadaluarsa pada pukul #{Time.at(payload[:exp]).strftime('%k:%M:%S')}"
                 },      status: 200
             else
-                render json: { error: user.errors.full_messages[0] }, status: 422 # Unprocessable Entity
+                render json: { warning: user.errors.full_messages[0] }, status: 422 # Unprocessable Entity
             end
         else
             render json: { 
-                error: "Password tidak valid. Pastikan password terdiri dari: Minimum 6 karakter, 1 kapital, 1 angka dan 1 karakter unik. Contoh: Gh4n!y" }, 
+                warning: "Password tidak valid. Pastikan password terdiri dari: Minimum 6 karakter, 1 kapital, 1 angka dan 1 karakter unik. Contoh: Gh4n!y" }, 
                 status: 422
         end
     end

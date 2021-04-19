@@ -3,6 +3,15 @@ class API::APIController < ApplicationController
 
     include API::APIHelper
 
+    # ========================================================= #
+        # Panduan padanan response JSON terhadapat HTTP Status
+        # 200 OK: JSON Response { message: }
+        # 422 Unprocessable Entity: JSON Response { warning: }
+        # 401 Unauthorized: JSON Response { error: }
+
+        # NB: Harap digunakan pada semua Controller API
+    # ========================================================= #
+
     private
 
     def authorize_request
@@ -18,18 +27,18 @@ class API::APIController < ApplicationController
                 @current_user_id = decode_token['id']
                 
                 # Raise 401 jika hasil dari token_was_denied? adalah true
-                render json: '401 Unauthorized', status: 401 if token_was_denied?(decode_token)
+                render json: { error: '401 Unauthorized' }, status: 401 if token_was_denied?(decode_token)
             rescue  JWT::ExpiredSignature 
-                render json: 'Your session has expired, please Login to continue', status: 401
+                render json: { error: 'Your session has expired, please Login to continue' }, status: 401
             rescue  JWT::VerificationError,
                     JWT::DecodeError
-                render json: '401 Unauthorized', status: 401
+                render json: { error: '401 Unauthorized' }, status: 401
             end
         end
     end
 
     def authenticate_user!(options = {})
-        render json: '401 Unauthorized', status: 401 unless signed_in?  
+        render json: { error: '401 Unauthorized' }, status: 401 unless signed_in?  
     end
     
     def current_user

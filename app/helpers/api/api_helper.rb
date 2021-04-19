@@ -28,6 +28,7 @@ module API::APIHelper
         JwtDenylist.find_by_jti(decode['jti'])
     end
     
+    # minimum 6 karakter: {terdiri dari angka, karakter unik, huruf kapital}
     PASSWORD_VALIDATION = /\A(?=.*\d)(?=.*[A-Z])(?=.*\W)[^ ]{6,}\z/
 
     def password_param

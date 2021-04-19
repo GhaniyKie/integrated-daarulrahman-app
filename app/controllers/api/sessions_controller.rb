@@ -27,7 +27,7 @@ class API::SessionsController < Devise::SessionsController
                     message: "Sesi login ini akan kadaluarsa pada pukul #{Time.at(payload[:exp]).strftime('%k:%M:%S')}"
             },      status: 200
         else
-            render json: "Email atau Password salah", status: 401      
+            render json: { warning: "Email atau Password salah" }, status: 422      
         end
     end
 
@@ -35,10 +35,10 @@ class API::SessionsController < Devise::SessionsController
     def destroy        
         if header_authorization.present?
             token = header_authorization.split(' ').last
-            render json: 'Logout berhasil', status: 200
+            render json: { message: 'Logout berhasil' }, status: 200
             process_to_denylist(token)
         else
-            render json: 'Anda harus login terlebih dahulu', status: :unprocessable_entity
+            render json: { warning: 'Anda harus login terlebih dahulu' }, status: 422
         end
     end
 
