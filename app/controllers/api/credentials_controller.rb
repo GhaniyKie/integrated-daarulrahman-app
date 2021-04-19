@@ -80,12 +80,6 @@ class API::CredentialsController < Devise::PasswordsController
 
     private
   
-    PASSWORD_VALIDATION = /\A(?=.*\d)(?=.*[A-Z])(?=.*\W)[^ ]{6,}\z/
-
-    def password_param
-      params[:password]
-    end
-  
     def email_exist?
       User.find_by_email(params[:email])
     end
