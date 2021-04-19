@@ -32,12 +32,12 @@ class API::CredentialsController < Devise::PasswordsController
     
                 # Cek jika parameter API adalah password, dan cek jika token yang digunakan adalah
                 # Token yang valid. Pengecekan berdasarkan Waktu Expired atau berdasarkan Blacklist token
-                if password_param && !token_was_denied?(decode)
+                if password && !token_was_denied?(decode)
     
-                    if password_param.match(PASSWORD_VALIDATION) # Sesuai menggunakan validasi Regex
+                    if password_match_validation? # Sesuai menggunakan validasi Regex
                         # Menggunakan method dari Devise::Recoverable#reset_password
                         # Parameter berisi 2, yaitu new password dan new password confirmation
-                        user.reset_password(password_param, password_param)
+                        user.reset_password(password, password)
                         render json: { message: 'Password berhasil diubah, silahkan login kembali untuk melanjutkan' }, status: 200
                         process_to_denylist(auth_token)
                     else
@@ -48,12 +48,12 @@ class API::CredentialsController < Devise::PasswordsController
             
                 # Pengecekan kembali jika parameter API yaitu email, dan mengecek jika token yang digunakan adalah
                 # Token yang valid. Pengecekan berdasarkan Waktu Expired atau berdasarkan Blacklist token
-                elsif params[:email] && !token_was_denied?(decode)
+                elsif email && !token_was_denied?(decode)
 
                     # Cek apakah email sudah ada di database
                     if email_exist?
                         render json: { warning: 'Email sudah terdaftar' }, status: 422 # Unprocessable Entity
-                    elsif user.update(email: params[:email])
+                    elsif user.update(email: email)
                         render json: { message: 'Email berhasil diubah' }, status: 200
                     else
                         # Exception jika format email tidak valid dengan Regex yang ada di initializers/devise.rb
@@ -83,7 +83,7 @@ class API::CredentialsController < Devise::PasswordsController
     private
   
     def email_exist?
-      User.find_by_email(params[:email])
+      User.find_by_email(email)
     end
   
   end

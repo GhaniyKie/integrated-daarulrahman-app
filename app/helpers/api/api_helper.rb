@@ -11,6 +11,14 @@ module API::APIHelper
         request.headers['Authorization']
     end
 
+    def password
+        params[:password]
+    end
+
+    def email
+        params[:email]
+    end
+
     # Memproses token ke Denylist, sehingga token tidak dapat digunakan kembali
     def process_to_denylist(token)
         decode_token = API::JsonWebToken.decode(token)
@@ -28,10 +36,9 @@ module API::APIHelper
         JwtDenylist.find_by_jti(decode['jti'])
     end
     
-    # minimum 6 karakter: {terdiri dari angka, karakter unik, huruf kapital}
-    PASSWORD_VALIDATION = /\A(?=.*\d)(?=.*[A-Z])(?=.*\W)[^ ]{6,}\z/
+    def password_match_validation?
+        # minimum 6 karakter: {terdiri dari angka, karakter unik, huruf kapital}
+        password.match(/\A(?=.*\d)(?=.*[A-Z])(?=.*\W)[^ ]{6,}\z/) if password.present?
 
-    def password_param
-        params[:password]
     end
 end

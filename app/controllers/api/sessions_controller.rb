@@ -6,9 +6,9 @@ class API::SessionsController < Devise::SessionsController
     
     # Method create ini digunakan untuk membuat sesi (proses login user)
     def create
-        user = User.find_by_email(params[:email])
+        user = User.find_by_email(email)
   
-        if user && user.valid_password?(params[:password])
+        if user && user.valid_password?(password)
             # iat (Issued At): Waktu dimana JWT ini di berikan ke pengguna
             # jti (JWT ID): Id hasil dari payload iat dan personal token sebagai identifikasi Token JWT
             iat = Time.now.to_i

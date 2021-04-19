@@ -4,9 +4,8 @@ class API::RegistrationsController < Devise::RegistrationsController
     include API::APIHelper
 
     def create
-        if password_param.match(PASSWORD_VALIDATION)
-            user = User.new(email: params[:email], password: params[:password])
-        
+        user = User.new(email: email, password: password)
+        if password_match_validation?
             if user.save
                 # iat (Issued At): Waktu dimana JWT ini di berikan ke pengguna
                 # jti (JWT ID): Id hasil dari payload iat dan personal token sebagai identifikasi Token JWT
