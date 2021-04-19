@@ -81,7 +81,7 @@ test:
 #
 production:
   <<: *default
-  database: integrated-daarulrahman-app-production
-  username: integrated-daarulrahman-app
+  database: <%= ENV['DATABASE_NAME'] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
   password: <%= ENV['DATABASE_PASSWORD'] %>
-  host: 172.30.224.4
+  host: <%= ENV['DATABASE_IP'] %>
