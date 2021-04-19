@@ -28,4 +28,9 @@ module API::APIHelper
         JwtDenylist.find_by_jti(decode['jti'])
     end
     
+    PASSWORD_VALIDATION = /\A(?=.*\d)(?=.*[A-Z])(?=.*\W)[^ ]{6,}\z/
+
+    def password_param
+        params[:password]
+    end
 end
