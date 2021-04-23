@@ -1,0 +1,52 @@
+-# Ditulis menggunakan HAML (HTML Abstraction Markup Language)
+-# HAML adalah implementasi dari Bahasa Ruby, disebut juga sebagai DSL (Domain Spesific Language)
+
+%header
+    %nav.navbar.fixed-top.navbar-expand-lg.navbar-light.white
+        .container-fluid
+            = link_to('https://pp-daarulrahman.sch.id', class: "navbar-brand") do
+                = image_tag('logo_dr.png', alt: 'Logo Daarul Rahman', height: '35')
+            %button.navbar-toggler{ type: :button, "data-toggle": "collapse", "data-target": "#navbarSupportedContent", "aria-controls": "navbarSupportedContent", "aria-expanded": false, "aria-label": "Toggle navigation"}
+                %span.navbar-toggler-icon
+            .collapse.navbar-collapse#navbarSupportedContent
+
+                - if !user_signed_in?
+                    %ul.navbar-nav.mr-auto
+                        %li.nav-item
+                            = link_to('Beranda', '#', class: "nav-link text-black-50")
+                        %ul.navbar-nav.nav-flex-icons
+                            %li.nav-item
+                                = link_to('https://facebook.com', class: "nav-link") do
+                                    %i.fa.fa-facebook.text-primary
+                            %li.nav-item
+                                = link_to('https://instagram.com', class: "nav-link") do
+                                    %i.fa.fa-instagram.text-secondary
+                            %li.nav-item
+                                = link_to('https://youtube.com', class: "nav-link") do
+                                    %i.fa.fa-youtube.text-danger
+                                    
+                        %ul.navbar-nav.nav-flex-icons
+                            %li.nav-item
+                                = link_to("#{new_user_session_path}", class: "nav-link") do
+                                    %span.text-black-50 Masuk
+                                    %i.fa.fa-user.text-black-50
+                - else
+                    %form.input-group.navbar-nav.d-sm-none.d-md-block
+                        %input{ autocomplete: :off, type: :search, class: ["form-control", "rounded"], placeholder: "Search", style: "min-width: 125px;"}
+                        %span.input-group-text.border-0.d-none.d-lg-flex
+                            %i.fa.fa-search
+                    -# .input-group.rounded.container
+                        -# %input.form-control.rounded{type: :text, placeholder: "Cari Tagihan atau Bukti Pembayaran", "aria-label": "Search", "aria-describedby": "search-addon"}
+                        -# %button.btn.btn-outline-primary{ type: :button, "data-mdb-ripple-color": :dark}Cari
+                        -# %span.input-group-text.border-0#search-addon
+                        -#     %i.fa.fa-search
+                    %ul.navbar-nav.d-flex.flex-row.justify-content-end
+                        %li.nav-item.dropdown
+                            = link_to("#", class: "nav-link dropdown-toggle", id: "navbarDropdownMenuLink", "data-toggle": "dropdown", "aria-haspopup": true, "aria-expanded": false) do
+                                %span.text-black-50=current_user.email
+                                %i.fa.fa-user.text-black-50
+                            .dropdown-menu.dropdown-primary{"aria-labelledby": "navbarDropdownMenuLink"}
+                                = link_to('Pengaturan', "#", class: "nav-link")
+                                = link_to('Bantuan', '#', class: "nav-link text-black-50")
+                                %hr.dropdown-divider
+                                = link_to('Keluar', "#{destroy_user_session_path}", class: "nav-link", method: :delete)

@@ -7,24 +7,33 @@ require "rails/all"
 Bundler.require(*Rails.groups)
 
 module IntegratedDaarulrahmanApp
-  class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.1
+    class Application < Rails::Application
+        # Initialize configuration defaults for originally generated Rails version.
+        config.load_defaults 6.1
 
-    config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        origins '*'
-        resource '*', headers: :any, methods: [:get, :post, :put, :delete, :options, :patch, :head]
-      end
-    end
+        config.middleware.insert_before 0, Rack::Cors do
+            allow do
+                origins '*'
+                resource '*', headers: :any, methods: [:get, :post, :put, :delete, :options, :patch, :head]
+            end
+        end
+        
+        # =========== ASSETS PIPELINE ============ #
+        config.assets.paths << Rails.root.join('app', 'assets', 'images')
+        config.assets.paths << Rails.root.join("app", "assets", "fonts", "roboto")
     
-    # Configuration for the application, engines, and railties goes here.
-    #
-    # These settings can be overridden in specific environments using the files
-    # in config/environments, which are processed later.
-    #
-    config.time_zone = "Asia/Jakarta"
-    # config.eager_load_paths << Rails.root.join("extras")
-    config.i18n.default_locale = :id
-  end
+        Dir.glob("#{Rails.root}/app/assets/images/**/").each do |path|
+          config.assets.paths << path
+        end
+        # ======================================== #
+
+        # Configuration for the application, engines, and railties goes here.
+        #
+        # These settings can be overridden in specific environments using the files
+        # in config/environments, which are processed later.
+        #
+        config.time_zone = "Asia/Jakarta"
+        # config.eager_load_paths << Rails.root.join("extras")
+        config.i18n.default_locale = :id
+    end
 end

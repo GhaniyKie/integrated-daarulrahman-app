@@ -1,0 +1,49 @@
+-# %article{ class: "media" }
+-#     %figure{ class: "media-left" }
+-#         %p{ class: ["image", "is-64x64"] }
+-#             = image_tag('https://bulma.io/images/placeholders/128x128.png')
+-#     .media-content
+-#         .field
+-#             %p{ class: "control" }
+-#                 %textarea{ class: "textarea", placeholder: "Add a comment..."}
+-#         %nav{ class: "level" }
+-#             .level-left
+-#                 .level-item 
+-#                     %a{ class: ["button", "is-info"]} Submit
+-#             .level-right 
+-#                 .level-item 
+-#                     %label{ class: "checkbox" }
+-#                         %input{ type: "checkbox"} Press enter to submit
+
+-# %article{ class: "media" }
+-#     %figure{ class: "media" }
+-#         %p{ class: ["image", "is-64x64"] }
+-#             = image_tag 'https://bulma.io/images/placeholders/128x128.png', alt: '', height: '', width: '', class: ''
+-#     .media-content 
+-#         .content 
+-#             %p <strong>Abdul Hakim Ghaniy</strong> <small>@ghaniy_ganteng</small> <small>31m</small> <br />
+-#             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+-#         %nav.level.is-mobile
+-#             .level-left
+-#                 = link_to('#', class: "level-item") do
+-#                     %span{ class: ["icon", "is-small"]}
+-#                         %i{class: ["fas", "fa-reply"]}
+-#                 = link_to('#', class: "level-item") do
+-#                     %span{ class: ["icon", "is-small"]}
+-#                         %i{class: ["fas", "fa-retweet"]}
+-#                 = link_to('#', class: "level-item") do
+-#                     %span{ class: ["icon", "is-small"]}
+-#                         %i{class: ["fas", "fa-heart"]}
+-#     .media-right
+-#         %button.delete
+-#             -# Bisa menggunakan %button{ class: "delete"} atau %button.delete 
+
+-# %nav{ class: "navbar", role: "navigation", "aria-label": "main navigation"}
+-#     .navbar-brand 
+-#         = link_to('https://bulma.io', class: "level-item") do
+-#             = image_tag('https://bulma.io/images/bulma-logo.png', alt: '', height: 300, width: 45, class: '')
+-#         = link_to('', role: "button", class: "navbar-burger", "aria-label": "menu", "aria-expanded": false, "data-target": "navbarBasicExample") do
+-#             %span{ "aria-hidden": true }
+-#             %span{}
+
+%h1 Ghaniy Ganteng

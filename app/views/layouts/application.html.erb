@@ -1,16 +1,86 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>IntegratedDaarulrahmanApp</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <script type="application/ld+json">
+      {
+        "@context" : "http://schema.org",
+        "@type" : "BlogPosting",
+        "mainEntityOfPage": 
+        {
+            "@type": "WebPage",
+            "@id": "https://leuwiliang.daarulrahman.ponpes.id"
+        },
+        "articleSection" : "",
+        "name" : "Daarul Rahman II | Leuwiliang",
+        "headline" : "Pondok Pesantren Daarul Rahman Leuwiliang, Bogor, Jawa Barat.",
+        "description" : "",
+        "inLanguage" : "id",
+        "author" : "",
+        "creator" : "",
+        "publisher": "",
+        "accountablePerson" : "",
+        "copyrightHolder" : "",
+        "copyrightYear" : "",
+        "datePublished": "5:45 PM â€¢ 19 Aug 2018",
+        "dateModified" : "5:45 PM â€¢ 19 Aug 2018",
+        "url" : "https://leuwiliang.daarulrahman.ponpes.id",
+        "wordCount" : "0","keywords" : [ "Blog" ]
+      }
+    </script>
+
+    <!--META DESCRIPTION AND FAVICON-->
+    <!--Apple Touch-->
+    <link rel="apple-touch-icon" sizes="57x57" href="img/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-icon-180x180.png">
+
+    <!--Android Favicon-->
+    <link rel="icon" type="image/png" sizes="192x192" href="img/favicon/android-icon-192x192.png">
+
+    <!--Favicon-->
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon/96x96.png">
+      
+    <!--Windows Application-->
+    <meta name="msapplication-TileColor" content="#009900">
+    <meta name="msapplication-TileImage" content='img/favicon/ie-icon-square-70x70.png'>
+    <meta name="msapplication-TileImage" content='img/favicon/ie-icon-square-310x310.png'>
+    <meta name="msapplication-TileImage" content='img/favicon/ie-icon-square-310x150.png'>
+    <meta name="application-name" content="Daarul Rahman II | Leuwiliang">
+    <meta name="msapplication-tooltip" content="Pondok Pesantren Daarul Rahman Leuwiliang, Bogor, Jawa Barat.">
+    <meta name="msapplication-config" content='img/favicon/ieconfig.xml'>
+
+    <!--Deskripsi-->
+    <meta name="description" content="Pondok Pesantren Daarul Rahman Leuwiliang, Bogor, Jawa Barat.">
+    <meta itemprop="name" content="Daarul Rahman II | Leuwiliang">
+    <meta itemprop="description" content="Pondok Pesantren Daarul Rahman Leuwiliang, Bogor, Jawa Barat.">
+    <title>Pondok Pesantren Daarul Rahman | Leuwiliang</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
-  <body>
+  <body onload="displayTime();setInterval('displayTime()', 1000);">
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>
