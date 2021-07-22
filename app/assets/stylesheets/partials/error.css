@@ -1,0 +1,62 @@
+article {
+    margin: auto 0;
+}
+
+article h1 {
+    font-size: 40px;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+article p {
+    font-family: 'Lora', serif;
+    font-size: 20px;
+    padding: 1px 0;
+}
+
+button {
+    margin-top: 35px;
+}
+
+footer {
+    margin: 0 0 10% 0;
+    display: block;
+    height: 50px;
+}
+
+img {
+    height: 50px;
+    float: right;
+}
+
+.px650 {
+    display: none;
+}
+
+@media screen and (max-width: 650px) {
+    article {
+        text-align: center;
+    }
+
+    article h1 {
+        font-size: 30px;
+    }
+    
+    article p {
+        font-size: 14px;
+    }
+    
+    .px650 {
+        display: inline-block;
+    }
+
+    .none650px {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    img {
+        float: none;
+    }
+}

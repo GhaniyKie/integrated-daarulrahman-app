@@ -1,0 +1,45 @@
+-# Ditulis menggunakan HAML (HTML Abstraction Markup Language)
+-# HAML adalah implementasi dari Bahasa Ruby, disebut juga sebagai DSL (Domain Spesific Language)
+
+!!!
+%html
+    %head
+        %meta{charset: "utf-8"}
+        %meta{name: "viewport", content: "width=device-width, initial-scale=1, shrink-to-fit=no"}
+        %meta{ "http-equiv": "x-ua-compatible", content: "ie=edge"}
+        %title Pondok Pesantren Daarul Rahman
+
+        -# META DESCRIPTION AND FAVICON
+        -# -# Apple Touch
+        -# = favicon_link_tag 'favicon/apple-icon-57x57.png', rel: 'apple-touch-icon', sizes: '57x57'
+        -# = favicon_link_tag 'favicon/apple-icon-60x60.png', rel: 'apple-touch-icon', sizes: '60x60'
+        -# = favicon_link_tag 'favicon/apple-icon-72x72.png', rel: 'apple-touch-icon', sizes: '72x72'
+        -# = favicon_link_tag 'favicon/apple-icon-76x76.png', rel: 'apple-touch-icon', sizes: '76x76'
+        -# = favicon_link_tag 'favicon/apple-icon-114x114.png', rel: 'apple-touch-icon', sizes: '114x114'
+        -# = favicon_link_tag 'favicon/apple-icon-120x120.png', rel: 'apple-touch-icon', sizes: '120x120'
+        -# = favicon_link_tag 'favicon/apple-icon-144x144.png', rel: 'apple-touch-icon', sizes: '144x144'
+        -# = favicon_link_tag 'favicon/apple-icon-152x152.png', rel: 'apple-touch-icon', sizes: '152x152'
+        -# = favicon_link_tag 'favicon/apple-icon-180x180.png', rel: 'apple-touch-icon', sizes: '180x180'
+
+        -# -# Android Favicon
+        -# = favicon_link_tag 'favicon/android-icon-192x192.png', rel: 'icon', type: 'image/png', sizes: '192x192'
+
+        -# -# Favicon
+        -# = favicon_link_tag 'favicon/16x16.png', rel: 'icon', type: 'image/png', sizes: '16x16'
+        -# = favicon_link_tag 'favicon/32x32.png', rel: 'icon', type: 'image/png', sizes: '32x32'
+        -# = favicon_link_tag 'favicon/96x96.png', rel: 'icon', type: 'image/png', sizes: '96x96'
+
+        -# Deskripsi Website
+        %meta{name: "description", content: "Aplikasi Terintegrasi Pondok Pesantren Daarul Rahman"}
+        %meta{itemprop: "name", content: "Pondok Pesantren Daarul Rahman"}
+        %title Pondok Pesantren Daarul Rahman | Aplikasi Pembayaran Online
+
+        = csrf_meta_tags
+        = csp_meta_tag
+
+        = stylesheet_link_tag 'home/application', media: :all, "data-turbolinks-track": "reload"
+        = javascript_include_tag 'application', "data-turbolinks-track": "reload"
+        = javascript_pack_tag 'application', "data-turbolinks-track": "reload"
+
+    %body
+            = yield

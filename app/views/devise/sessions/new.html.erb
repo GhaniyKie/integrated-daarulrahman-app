@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag '_login', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', "data-turbolinks-track": "reload"%>
+    <%= javascript_pack_tag 'application', "data-turbolinks-track": "reload" %>  
+    <title>Login</title>
+</head>
+<body>
+    <div class="background"></div>
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <%= image_tag 'logo_dr.png' %>
+            </div>
+        </header>
+        <article>
+            <section class="login-title">
+                <h1>Login</h1>
+                <p>Masuk untuk mulai menggunakan Aplikasi</p>
+            </section>
+            <section class="form login">
+                <%= form_for resource, as: resource_name, url: session_path(resource_name) do |f| %>
+                    <div class="field input">
+                        <%= f.label :email %>
+                        <%= f.email_field :email, placeholder: "contoh@email.com", id: "form-login-email"%>
+                    </div>
+                    <div class="field input">
+                        <%= f.label :password %>
+                        <%= f.password_field :password, autocomplete: "current-password", id: "formPassword"%>
+                        <i class="bi bi-eye-slash" id="togglePassword" onclick="togglePassword('formPassword', this.id)"></i>
+                    </div>
+                    <div class="clear"></div> <!-- untuk penyesuaian float togglePassword-->
+                    <div class="field checkbox">
+                        <% if devise_mapping.rememberable? %>
+                            <div class="remember-me">
+                                <%= f.check_box :remember_me, class: "checkbox" %>
+                                <%= f.label :remember_me %>
+                            </div>
+                        <% end %>
+                        <div class="forgot-password">
+                            <a href="<%= new_user_password_path %>">Lupa Password?</a>
+                        </div>
+                    </div>
+                    <%# USE f.button INSTEAD f.submit %>
+                    <%= f.button "Mulai", class: "login", type: :submit%>
+                <% end %>
+                <div class="login-oauth">
+                    <p>Atau Login Menggunakan</p>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-google"></i></a>
+                    <a href=""><i class="bi bi-github"></i></a>
+                </div>
+            </section>
+            <section>
+                <div class="not-registered">
+                    <p>Belum mempunyai akun? <%= link_to 'Buat Akun', new_user_registration_path, style: "color: forestgreen;" %></p>
+                </div>
+            </section>  
+        </article>
+    </div>
+</body>
+</html>
