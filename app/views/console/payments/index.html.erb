@@ -1,0 +1,161 @@
+<%= render partial: 'console/payments/partials/head' %>
+    <%= render partial: 'console/payments/partials/navbar' %>
+    <div class="container">
+
+        <article>
+            <section class="bill box main-box">
+                <div class="title">
+                    <h3>Tagihan Bulan Ini</h3>
+                </div>
+                <div class="nominal">
+                    <h1><%= rupiah(@loans_total) %></h1>
+                </div>
+                <div class="bill-information">
+                    <% @loans_details.each do |tagihan, nominal| %>
+                        <div class="items">
+                            <p class="bill-item"><%= tagihan %></p>
+                            <p class="item-nominal"><%= rupiah(nominal) %></p> 
+                        </div>
+                    <% end %>
+                </div>
+            </section>
+            <section class="information box main-box">
+                <div class="title">
+                    <h3>Informasi Terbaru</h3>
+                </div>
+                <div class="content">
+                    <p class="date">~ Selasa, 23 Maret 2030 ~</p>
+                    <p>Pembayaran SPP dan Ujian Akhir Semester paling lambat tanggal 30 Februari 1998</p>
+                </div>
+                <div class="content">
+                    <p class="date">~ Rabu, 23 Februari 2045 ~</p>
+                    <p>Saat ini pembayaran menggunakan Gopay sedang dalam gangguan. Silahkan gunakan metode pembayaran lain.</p>
+                </div>
+            </section>
+            <section class="payment-history">
+                <div class="title-history">
+                    <h3>Histori Pembayaran</h3>
+                </div>
+                <div class="histories">
+                    <% @payments_histories.each do |ph| %>
+                    <div class="history box ripple">
+                        <div class="payment-id">
+                            <!-- <p><%= ph.id_pembayaran %></p> -->
+                            <p><%= from_current_user.invoices.find(ph.payment_type_id).id_tagihan %></p>
+                        </div>
+                        <div class="payment-date">
+                            <p><%= ph.created_at.strftime("%Y-%m-%d")%></p>
+                        </div>
+                        <div class="payment-nominal">
+                            <p><%= rupiah(@loans.find(ph.payment_type_id).nominal_biaya) %></p>
+                        </div>
+                        <div class="payment-status">
+                            <p>Status: <%= ph.keterangan %></p>
+                        </div>
+                    </div>
+                    <% end %>
+                    <%= "Tidak ada data pembayaran" if @payments_histories.blank? %>
+                    <%# <div class="history box ripple 2">
+                        <div class="payment-id">
+                            <p>e149a365ee48a579f43dcf0502e3857ae42290b0</p>
+                        </div>
+                        <div class="payment-date">
+                            <p>28-11-1998</p>
+                        </div>
+                        <div class="payment-nominal">
+                            <p>Rp. 656.000</p>
+                        </div>
+                        <div class="payment-status">
+                            <p>Status: Gagal</p>
+                        </div>                    
+                    </div>
+                    <div class="history box ripple 3">
+                        <div class="payment-id">
+                            <p>e149a365ee48a579f43dcf0502e3857ae42290b0</p>
+                        </div>
+                        <div class="payment-date">
+                            <p>28-11-1998</p>
+                        </div>
+                        <div class="payment-nominal">
+                            <p>Rp. 656.000</p>
+                        </div>
+                        <div class="payment-status">
+                            <p>Status: Batal</p>
+                        </div>                    
+                    </div>
+                    <div class="history box ripple 4">
+                        <div class="payment-id">
+                            <p>e149a365ee48a579f43dcf0502e3857ae42290b0</p>
+                        </div>
+                        <div class="payment-date">
+                            <p>28-11-1998</p>
+                        </div>
+                        <div class="payment-nominal">
+                            <p>Rp. 656.000</p>
+                        </div>
+                        <div class="payment-status">
+                            <p>Status: Menunggu Pembayaran</p>
+                        </div>                    
+                    </div>
+                    <div class="history box ripple 5">
+                        <div class="payment-id">
+                            <p>e149a365ee48a579f43dcf0502e3857ae42290b0</p>
+                        </div>
+                        <div class="payment-date">
+                            <p>28-11-1998</p>
+                        </div>
+                        <div class="payment-nominal">
+                            <p>Rp. 656.000</p>
+                        </div>
+                        <div class="payment-status">
+                            <p>Status: Berhasil</p>
+                        </div>                    </div>
+                    <div class="history box ripple 6">
+                        <div class="payment-id">
+                            <p>e149a365ee48a579f43dcf0502e3857ae42290b0</p>
+                        </div>
+                        <div class="payment-date">
+                            <p>28-11-1998</p>
+                        </div>
+                        <div class="payment-nominal">
+                            <p>Rp. 656.000</p>
+                        </div>
+                        <div class="payment-status">
+                            <p>Status: Berhasil</p>
+                        </div>                    
+                    </div>
+                    <div class="history box ripple 7">
+                        <div class="payment-id">
+                            <p>e149a365ee48a579f43dcf0502e3857ae42290b0</p>
+                        </div>
+                        <div class="payment-date">
+                            <p>28-11-1998</p>
+                        </div>
+                        <div class="payment-nominal">
+                            <p>Rp. 656.000</p>
+                        </div>
+                        <div class="payment-status">
+                            <p>Status: Berhasil</p>
+                        </div>                    
+                    </div>
+                    <div class="history box ripple 8">
+                        <div class="payment-id">
+                            <p>e149a365ee48a579f43dcf0502e3857ae42290b0</p>
+                        </div>
+                        <div class="payment-date">
+                            <p>28-11-1998</p>
+                        </div>
+                        <div class="payment-nominal">
+                            <p>Rp. 656.000</p>
+                        </div>
+                        <div class="payment-status">
+                            <p>Status: Berhasil</p>
+                        </div>                    
+                    </div> %>
+                </div>
+            </section>
+        </article>
+        <div class="notification success box ripple" id="notification" onclick="notification()">
+            <p>Berhasil Login</p>
+        </div>
+    </div>

@@ -1,0 +1,164 @@
+.navbar,
+.logo,
+.search,
+.profile {
+    margin: auto;
+}
+
+.search,
+.profile {
+    display: flex;
+}
+
+/* HEADER */
+
+header {
+    height: 60px;
+    background-color: #a7c4bc;
+    position: sticky;
+    position: -webkit-sticky; /* Safari */
+    top: 0;
+    z-index: 1;
+}
+
+.container.header {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navbar {
+    margin-left: 0;
+}
+
+.hamburger:hover {
+    cursor: pointer;
+}
+
+.hamburger div{
+    width: 30px;
+    height: 4px;
+    background-color: #2f5d62;
+    margin: 6px 0;
+}
+
+.logo a {
+    font-size: 1.5em;
+    font-weight: 100;
+    color: #2f5d62;
+}
+
+.search {
+    width: 30vw;
+}
+
+.search-form input {
+    height: 35px;
+    width: 27vw;
+    background-color: #dfeeea;
+    border: none;
+    border-right: 1px solid black;
+    font-size: medium;
+    color: black;
+    padding-left: 18px;
+}
+
+.search-form input:focus {
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+.icon {
+    height: 35px;
+    width: 3vw;
+    background-color: #dfeeea;
+    font-size: 25px;
+    display: flex;
+    color: #2f5d62;
+}
+
+.icon span {
+    margin: auto;
+}
+
+.profile {
+    margin-right: 0;
+}
+
+p.name,
+.avatar {
+    margin: auto;
+}
+
+p.name {
+    margin-right: 10px;
+    color: #2f5d62;
+    font-weight: 500;
+}
+
+.avatar {
+    object-fit: fill;
+    border-radius: 50%;
+}
+
+.profile .avatar {
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+}
+
+.profile-menu {
+    position: fixed;
+    top: 55px;
+    right: 10%;
+    background-color: #dfeeea;
+    padding: 20px;
+}
+
+.profile-menu .avatar {
+    height: 100px;
+    width: 100px;
+}
+
+.profile-detail,
+.settings {
+    display: flex;
+}
+
+.bio,
+.settings {
+    flex-direction: column;
+}
+
+.bio {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15px 10px 15px 10px;
+}
+
+.bio p.name{
+    margin: 0
+}
+
+.settings {
+    height: 22vh
+}
+
+.settings a {
+    margin: 10px 0 10px 0;
+    color: #2f5d62
+}
+
+.logout {
+    display: flex;
+    justify-content: center;
+}
+
+.logout button {
+    height: 40px;
+    width: 100px;
+    font-size: 1em;
+    font-weight: 500;
+}
