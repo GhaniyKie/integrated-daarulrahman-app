@@ -11,11 +11,11 @@ class User < ApplicationRecord
   before_save :ensure_personal_token
 
   # Keterangan roles masing-masing user
-  enum peranan: { superuser: 1, sekretaris: 2, bendahara: 3, guru: 4, siswa: 5 }
+  enum role: { superuser: 1, secretary: 2, exchequer: 3, teacher: 4, student: 5 }
   
   # Relasi antar entitas Admin dan Student
-  has_one :admins
-  has_one :students
+  has_one :admin
+  has_one :student
 
   # Memastikan bahwa token yang dibuat oleh Devise adalah token yang unik
   def ensure_personal_token
