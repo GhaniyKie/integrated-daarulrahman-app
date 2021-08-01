@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :payments do
+      collection do
+        post :receive_webhook
+      end
+    end
     # ================== SCOPE: API ======================= #
   
     # ================= devise scope ====================== #
@@ -25,24 +30,28 @@ Rails.application.routes.draw do
     # ====================================================== #
     # ================== END API SCOPE ===================== #
   
-    # =================== SCOPE: ADMIN ===================== #
-    namespace :admin do
-      resources :dashboards
+    # ================= SCOPE: SUPERUSER =================== #
+    namespace :superuser do
+      resources :dashboard
     end
     # ====================================================== #
   
     # =================== WEB APP SCOPE ==================== #
-    devise_for :users
-    resource :students
+    
+    # resource :students
     root to: 'home#index'
     # ====================================================== #
-  
-    
-    # TODO:
-    # # Catch-all to allow proper HTTP responses for 405 and 501
-    # match "*route_not_found.:format", :to => "application#route_not_found"
-    # match "*route_not_found",         :to => "application#route_not_found"
-  
+    namespace :console do
+      # resources :payments
+      get "payments", to: "payments#index"
+      get "payments/anjay", to: "payments#anjay"
+    end
+
+    scope "/console" do
+      devise_for :users
+    end
+
+    match "/404", to: "errors#not_found", via: :all
+
 end
 # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  
