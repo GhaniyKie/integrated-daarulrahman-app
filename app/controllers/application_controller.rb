@@ -4,15 +4,22 @@ class ApplicationController < ActionController::Base
     # Proteksi CSRF nonaktif jika Request berupa JSON
     protect_from_forgery with: :null_session, if: :json_request?
 
+    helper_method :from_current_user
 
     # ErrorResponseAction adalah modul untuk menampilkan tampilan custom dari error-error umum
     include ErrorResponseActions
     rescue_from ActiveRecord::RecordNotFound, :with => :resource_not_found
-
+        
     private
 
     def json_request?
         request.format.json?
+    end
+
+    # Get Profile from Current User (Admin atau Santri)
+    def from_current_user
+        id = current_user.id
+        user ||= Student.find_by(user_id: id) || Admin.find_by(user_id: id)
     end
 
     # TODO:

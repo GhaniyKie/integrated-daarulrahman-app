@@ -6,7 +6,8 @@ class StudentsController < ApplicationController
 
     # Menampilkan salah satu attribut yang dimiliki satri
     def show
-        @student = Student.find(params[:id])
+        @student = Student.find(user_id: current_user.id).nama
+        puts @student
     end
 
     # Membuat attribut untuk santri
@@ -30,6 +31,10 @@ class StudentsController < ApplicationController
     end
 
     private
+
+    def student_name(user)
+        return Student.find(user_id: user.id).nama
+    end
 
     def resource_params
         

@@ -1,0 +1,10 @@
+mkdir infraclass
+touch infraclass/config
+echo INFRACLASS_REGION=$INFRACLASS_REGION >> ~/infraclass/config
+INFRACLASS_PROJECT_ID=[YOUR_PROJECT_ID]
+echo INFRACLASS_PROJECT_ID=$INFRACLASS_PROJECT_ID >> ~/infraclass/config
+source infraclass/config
+echo $INFRACLASS_PROJECT_ID
+nano .profile
+source infraclass/config
+echo $INFRACLASS_PROJECT_ID

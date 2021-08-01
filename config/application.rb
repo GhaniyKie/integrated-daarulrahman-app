@@ -11,6 +11,8 @@ module IntegratedDaarulrahmanApp
         # Initialize configuration defaults for originally generated Rails version.
         config.load_defaults 6.1
 
+        config.exceptions_app = self.routes
+
         config.middleware.insert_before 0, Rack::Cors do
             allow do
                 origins '*'
@@ -20,7 +22,6 @@ module IntegratedDaarulrahmanApp
         
         # =========== ASSETS PIPELINE ============ #
         config.assets.paths << Rails.root.join('app', 'assets', 'images')
-        config.assets.paths << Rails.root.join("app", "assets", "fonts", "roboto")
     
         Dir.glob("#{Rails.root}/app/assets/images/**/").each do |path|
           config.assets.paths << path

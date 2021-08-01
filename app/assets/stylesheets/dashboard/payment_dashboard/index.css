@@ -33,7 +33,7 @@ article {
 .bill-information {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     margin-top: auto;
 }
 
@@ -44,6 +44,7 @@ article {
 
 .items {
     font-size: 1vw;
+    padding-right: 3%;
 }
 
 .items .bill-item {

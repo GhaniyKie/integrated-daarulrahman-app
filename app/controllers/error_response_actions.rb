@@ -20,13 +20,13 @@ module ErrorResponseActions
     #     end
     # end
 
-    # def page_not_found
-    #     respond_to do |format|
-    #       format.html{ render :template=>'/rescues/page_not_found', :status => 404 }
-    #       format.xml{  render :xml => 'Page Not Found',             :status => 404 }
-    #       format.json{ render :json => 'Page Not Found',            :status => 404 }
-    #     end
-    # end
+    def page_not_found
+        respond_to do |format|
+          format.html{ render :template=>'/rescues/404', :status => 404 }
+          format.xml{  render :xml => 'Page Not Found',             :status => 404 }
+          format.json{ render :json => 'Page Not Found',            :status => 404 }
+        end
+    end
     
     # def not_implemented(allowed_methods)
     #     method_not_allowed(allowed_methods, 'Not Implemented', 501)
@@ -52,7 +52,7 @@ module ErrorResponseActions
 
     def resource_not_found
         respond_to do |format|
-            format.html { render :template=>'/rescues/record_not_found', :status => 404 }
+            format.html { render :template=>'/rescues/404', :status => 404 }
             format.xml  {  render :xml => 'Record Not Found',             :status => 404 }
             format.json { render json: { error: 'Record Not Found' },    :status => 404 }
         end
