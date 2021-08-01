@@ -1,27 +1,30 @@
 class Invoice < ApplicationRecord
     # FriendlyId digunakan untuk membuat tampilan URL ketika menampilkan antar entitas tidak menggunakan ID bawaan Rails
     extend FriendlyId
-    friendly_id :id_tagihan, use: [:slugged, :finders]
+    friendly_id :reference_number, use: [:slugged, :finders]
 
-    # Relasi dengan entitas Student dan Payment Types
+    # FK dari Student dan Exchequer (Bendahara)
     belongs_to :student
-    belongs_to :payment_type
+    belongs_to :exchequer
+    
+    has_many :invoice_items_details
+    has_many :expenses, through: :invoice_items_details
 
-    validate :ensure_generate_id_tagihan
+    validate :ensure_generate_reference_number
 
-    def ensure_generate_id_tagihan
-        self.id_tagihan ||= generate_id_tagihan_from_payload
+    def ensure_generate_reference_number
+        self.reference_number ||= generate_reference_number_from_payload
     end
     
     private
 
-    def generate_id_tagihan_from_payload
-        loop do
-            payload = "#{self.student.user.personal_token}:#{self.payment_type.id}:#{DateTime.now}"
-            generate = Digest::SHA1.hexdigest(payload)
-            break generate unless Invoice.where(id_tagihan: generate).first
+    def generate_reference_number_from_payload
+        # loop do
+        10.times do
+            # payload = "#{self.student.user.personal_token}:#{DateTime.now}"
+            # gener2qate = Digest::SHA1.hexdigest(payload)
+            generate = "DR-#{DateTime.now.strftime("%d%M%Y")}-#{rand(10000)}"
+            break generate unless Invoice.where(reference_number: generate).first
         end
     end
 end
-
-# student.payment_type.sum(:nominal_biaya)
