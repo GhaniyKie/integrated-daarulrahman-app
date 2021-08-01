@@ -1,0 +1,330 @@
+.container {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.content {
+    flex-basis: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80vh;
+    margin-bottom: 0;
+    width: 30vw;
+}
+
+.payment-type-title h1,
+.payment-type-nominal h2,
+.payment-type-nominal h3 {
+    font-weight: 300;
+}
+
+.payment-type-title p,
+.payment-type-pay-information p,
+.payment-type-nominal p,
+.title h3,
+.emoney-notes p {
+    font-family: 'Lora', sans-serif;
+}
+
+.payment-type-title p,
+.payment-type-pay-information p,
+.payment-type-nominal p,
+.emoney-notes p {
+    font-family: 'Lora', sans-serif;
+    margin-bottom: 1%;
+    font-size: 1vw;
+}
+
+/* payment-type Title */
+
+.payment-type-title p span {
+    font-size: 0.7vw;
+}
+
+.payment-type-title h1 {
+    font-size: 2.5vw;
+    margin-bottom: 3%;
+}
+
+/* payment-type Title End */
+
+/* payment-type Nominal */
+
+.payment-type-nominal h2 {
+    font-size: 1.8vw;
+}
+
+.payment-type-nominal p {
+    font-weight: 700;
+    margin: 2% 0 6% 0;
+
+}
+
+p.nominal {
+    font-size: 1.5vw;
+}
+
+p.admin-fee {
+    font-size: 1.3vw;
+    margin-bottom: 0;
+}
+
+.payment-type-nominal h3 {
+    font-size: 1.5vw;
+}
+
+/* payment-type Nominal END */
+
+/* payment-type Pay Information */
+
+p.pay-status {
+    margin-bottom: 4vh;
+    font-weight: 700;
+}
+
+/* payment-type Pay Information END */
+
+/* TOTAL payment-type */
+.total-payment-type {
+    font-size: 1.5vw;
+    text-align: right;
+}
+
+.total-payment-type h4 {
+    font-weight: 300;
+    font-style: italic;
+}
+
+.total-payment-type span {
+    font-weight: bold;
+}
+
+/* TOTAL payment-type END */
+
+/* PAYMENT-TYPE ACTIONS */
+
+.action,
+.payment-type-action,
+.emoney,
+.wallets,
+.bank-transfer,
+.banks {
+    display: flex;
+}
+
+.payment-type-action .title {
+    width: 20vw;
+}
+
+.action {
+    flex-basis: 40%;
+    margin: 5% auto 0 7%;
+    flex-direction: column; 
+    justify-content: space-between;
+}
+
+.payment-type-action {
+    flex-direction: column;
+}
+
+.payment-type-action .title {
+    margin-bottom: 3%;
+}
+
+.payment-type-action .title h2 {
+    font-weight: 300;
+    font-size: 2.1vw;
+    color: #2f5d62;
+}
+
+.emoney .title h3,
+.bank-transfer .title h3 {
+    font-size: 1.5vw;
+    font-weight: 300;
+}
+
+.emoney {
+    flex-direction: column;
+}
+
+.wallets {
+    justify-content: space-between;
+    width: 20vw;
+}
+
+
+.emoney-notes {
+    margin-top: 4%;
+}
+
+.bank-transfer {
+    margin-top: 7%;
+}
+
+.banks {
+    justify-content: space-between;
+    width: 25vw;   
+}
+
+.wallets div,
+.banks div {
+    display: flex;
+    width: 5vw;
+    height: 5vw;
+    background-color: #dfeeea;
+    cursor: pointer;
+    border-radius: 15px;
+}
+
+.wallets img,
+.banks img {
+    width: 4vw;
+    margin: auto;
+}
+
+.wallets div:hover img,
+.banks div:hover img {
+    filter:  brightness(0) invert(1); /* Change to white while hover*/
+}
+
+.bank-transfer {
+    flex-direction: column;
+}
+
+.ask-help,
+.ask-help a {
+    color: #2f5d62;
+    font-size: 1vw;
+    font-weight: 300;
+}
+
+.ask-help a {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.ask-help p {
+    margin-top: 10px;
+}
+
+/*  */
+/*  */
+/*  */
+
+
+
+
+.qr-expired p,
+.information .title h4,
+.button-action a {
+    color: #2f5d62;
+}
+
+.popup {
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.payment-popup {
+    display: flex;
+    justify-content: space-between;
+    background-color: #dfeeea;
+    padding: 3%;
+    height: 70vh;
+    width: 55vw;
+    margin: auto;
+}
+
+.qr-box {
+    margin-right: 7%;
+    display: flex;
+    flex-direction: column;
+    margin: auto 3% auto 3%;
+}
+
+.qr-code img {
+    width: 15vw;
+    /* margin: 20px; */
+}
+
+.qr-expired {
+    text-align: center;
+    margin-top: 2vw;
+}
+
+.qr-expired p,
+.action-content p,
+.action-content ol {
+    font-size: 1vw;
+}
+
+.expire-time {
+    font-size: 1.5vw;
+    font-weight: 500;
+    margin-top: 10px;
+    display: inline-block;
+}
+
+.payment-popup-action .action-content p,
+.payment-popup-action .action-content li,
+.pay-total p,
+.button-action a {
+    font-family: 'Lora', serif;
+}
+
+.payment-popup-action {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 3% 3%;
+}
+
+.information .title h4{
+    font-size: 1.5vw;
+    font-weight: 300;
+}
+
+.action-content {
+    display: flex;
+    flex-direction: column;
+    margin: 3% 0;
+}
+
+.action-content p,
+.action-content ol {
+    margin-bottom: 2%;
+}
+
+.action-content ol {
+    margin: 0
+}
+
+.pay-action {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.pay-total {
+    margin-bottom: 5%;
+}
+
+.pay-total p {
+    font-size: 1.7vw;
+    font-weight: 700;
+}
+
+.button-action {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.button-action a,
+.button-action button {
+    margin: auto 5% ;
+    font-size: 1vw;
+}

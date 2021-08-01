@@ -1,0 +1,172 @@
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 65%;
+    margin-top: 23px;
+}
+
+.register.title {
+    margin-bottom: 25px;
+}
+
+.register.title h1 {
+    font-size: 40px;
+    font-weight: 300;
+    margin-bottom: 10px;
+}
+
+.hero-image {
+    max-width: 400px;
+    margin-top: 35vh;
+}
+
+.hero-image img {
+    height: 40vh;
+}
+
+button.register {
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.register.form {
+    width: 100%;
+    max-width: 400px;
+}
+
+.field i {
+    float: right;
+    position: relative;
+    margin-top: -55px;
+    cursor: pointer;
+    font-size: 22px;
+}
+
+.registered {
+    margin-top: 25px;
+}
+
+@media screen and (max-width: 1350px) {
+    .register-title {
+        margin-bottom: 20px;
+    }
+
+    .register-title h1 {
+        font-size: 35px;
+    }
+
+    .register-title p {
+        font-size: 15px;
+    }
+
+    .input input {
+        height: 40px;
+
+    }
+
+    button.register {
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .hero-image img {
+        height: 30vh;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .container {
+        margin: auto;
+    }
+    
+    article {
+        margin: 23px auto auto auto;
+        flex-basis: 100%;
+    }
+    
+    a {
+        color: black;
+    }
+    
+    a:hover {
+        color: forestgreen;
+    }
+    
+    header {
+        justify-content: center;
+        margin-top: auto;
+    
+    }
+    
+    .register.title {
+        text-align: center;
+        padding: 0 10px;
+        margin-bottom: 20px;
+    }
+    
+    .register.title h1{
+        font-size: 40px;
+        font-weight: 300;
+        margin-bottom: 20px;
+    }
+
+    section.form {
+        margin: auto;
+    }
+
+    aside {
+        display: none;
+    }
+    
+    .register.form {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    button.register {
+        width: 100%;
+        max-width: 400px;
+        /* margin-top: 20px; */
+        /* margin-bottom: 20px; */
+        font-size: 20px;
+    }
+
+    .registered {
+        text-align: center;
+    }
+    
+    .login-oauth {
+        text-align: center;
+        font-size: 17px;
+    }
+    
+    .login-oauth p {
+        margin-bottom: 10px;
+    }
+    
+    .login-oauth a {
+        font-size: 25px;
+        margin: 20px auto;
+        padding: 0 5px;
+    }
+    
+    .login-oauth .bi-facebook {
+        color: blue;
+    }
+    
+    .login-oauth .bi-google {
+        color: red;
+    }
+    
+    .login-oauth .bi-github {
+        color: black;
+    }
+    
+}

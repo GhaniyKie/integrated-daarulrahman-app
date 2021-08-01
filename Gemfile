@@ -98,8 +98,7 @@ gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
 group :development, :production do
   # MDBOOTSTRAP
   gem 'jquery-rails'
-  gem 'font-awesome-rails'
   gem 'haml'
-  gem 'popper_js'
-  gem 'rails-bootstrap'
 end
+
+gem "veritrans" # GEM PAYMENT GATEWAT MIDTRANS

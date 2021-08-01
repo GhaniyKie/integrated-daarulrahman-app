@@ -1,0 +1,150 @@
+.container {
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.content {
+    flex-basis: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 80vh;
+    margin-bottom: 0;
+    width: 30vw;
+}
+
+.invoice-title h1,
+.invoice-nominal h2,
+.invoice-nominal h3 {
+    font-weight: 300;
+}
+
+.invoice-title p,
+.invoice-pay-information p,
+.invoice-nominal p {
+    font-family: 'Lora', sans-serif;
+    margin-bottom: 1%;
+    font-size: 1vw;
+}
+
+/* Invoice Title */
+
+.invoice-title p span {
+    font-size: 0.7vw;
+}
+
+.invoice-title h1 {
+    font-size: 2.5vw;
+    margin-bottom: 3%;
+}
+
+/* Invoice Title End */
+
+/* Invoice Nominal */
+
+.invoice-nominal h2 {
+    font-size: 1.8vw;
+}
+
+.invoice-nominal p {
+    font-weight: 700;
+    margin: 2% 0 6% 0;
+
+}
+
+p.nominal {
+    font-size: 1.5vw;
+}
+
+p.admin-fee {
+    font-size: 1.3vw;
+    margin-bottom: 0;
+}
+
+.invoice-nominal h3 {
+    font-size: 1.5vw;
+}
+
+/* Invoice Nominal END */
+
+/* Invoice Pay Information */
+
+p.pay-status {
+    margin-top: 3vh;
+    font-weight: 700;
+}
+
+/* Invoice Pay Information END */
+
+/* TOTAL INVOICE */
+.total-invoice {
+    font-size: 1.5vw;
+    text-align: right;
+}
+
+.total-invoice h4 {
+    font-weight: 300;
+    font-style: italic;
+}
+
+.total-invoice span {
+    font-weight: bold;
+}
+
+/* TOTAL INVOICE END */
+
+
+.action {
+    flex-basis: 40%;
+    /* margin-top: 30px; */
+    display: flex;
+    flex-direction: column;
+    margin: 25% auto 0 7%;
+    justify-content: space-between;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+button {
+    font-size: 1.4vw;
+    font-weight: 300;
+    height: 8vh;
+}
+
+button i {
+    margin-right: 10px;
+}
+
+button.download {
+    flex-basis: 48%;
+}
+
+button.share {
+    flex-basis: 48%;
+}
+
+button.back {
+    flex-basis: 100%;
+    margin-top: 4%;
+}
+
+.ask-help,
+.ask-help a {
+    color: #2f5d62;
+    font-size: 1vw;
+    font-weight: 300;
+}
+
+.ask-help a {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.ask-help p {
+    margin-top: 10px;
+}

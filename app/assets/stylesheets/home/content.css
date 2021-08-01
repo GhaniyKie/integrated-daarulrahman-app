@@ -1,0 +1,55 @@
+.tagline {
+    flex-basis: 60%;
+    margin: auto 0;
+}
+
+.tagline h1 {
+    margin-bottom: 5px;
+    font-size: 2rem;
+}
+
+.tagline span {
+    color: rgb(0, 165, 0);
+}
+
+.image-main {
+    margin: 0 0 0 auto;
+}
+
+.image-main img {
+    width: 25vw;
+}
+
+.tagline p {
+    color: rgb(104, 104, 104);
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.tagline h2, .tagline h3 {
+    margin-bottom: 5px;
+    font-family: 'Lora', serif;
+}
+
+.tagline h2 {
+    font-size: 3rem;
+    /* font-size: 40px; */
+    color: rgb(0, 165, 0);
+}
+
+.tagline h3 {
+    font-size: 2.5rem;
+    /* font-size: 25px; */
+}
+
+button.start {
+    display: none;
+}
+
+.start i {
+    font-size: 25px;
+}
+
+.start span, .start i{
+    margin: auto;
+}

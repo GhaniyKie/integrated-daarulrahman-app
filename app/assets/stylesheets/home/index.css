@@ -1,0 +1,9 @@
+article {
+    display: flex;
+    flex-direction: row;
+    margin: auto 0;
+}
+
+button.start {
+   margin-top: 40px; 
+}

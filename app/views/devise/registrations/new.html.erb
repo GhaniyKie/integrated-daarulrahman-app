@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag '_register', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', "data-turbolinks-track": "reload"%>
+    <%= javascript_pack_tag 'application', "data-turbolinks-track": "reload" %>  
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    
+    <title>Register</title>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <%= image_tag 'logo_dr.png' %>
+            </div>
+        </header>
+
+        <div class="content">
+            <article>
+                <section class="register title">
+                    <h1>Register</h1>
+                    <p>Daftar untuk kemudahan transaksi dan informasi pembayaran pesantren</p>
+                </section>
+                <section class="register form">
+                    <%= form_for resource, as: resource_name, url: registration_path(resource_name) do |f| %>
+                        <%= render "devise/shared/error_messages", resource: resource %> <!--CARI TAU KEGUNAANNYA--> 
+                        <div class="field input">
+                            <%= f.label :email %>
+                            <%= f.email_field :email, placeholder: "contoh@email.com", id: "form-login-email"%>
+                        </div>
+                        <div class="field input">
+                            <%= f.label :password %>
+                            <%= f.password_field :password, autocomplete: "new-password", id: "formPassword"%>
+                            <i class="bi bi-eye-slash" id="togglePassword" onclick="togglePassword('formPassword', this.id)"></i>
+                        </div>
+                        <div class="field input">
+                            <%= f.label :password_confirmation %>
+                            <%= f.password_field :password_confirmation, autocomplete: "new-password", id: "formPasswordConfirm"%>
+                            <i class="bi bi-eye-slash" id="togglePasswordConfirm" onclick="togglePasswordConfirm('formPasswordConfirm', this.id)"></i>
+                        </div>
+                        <%# USE f.button INSTEAD f.submit %>
+                        <%= f.button "Daftar", class: "register", type: :submit%>
+                    <% end %>
+                    <div class="registered">
+                        <p>Sudah terdaftar / login dengan medsos ? <a href="<%= new_user_session_path %>" style="color: forestgreen;">Klik disini</a></p>
+                    </div>
+                </section>  
+            </article> 
+    
+            <aside class="hero-image">
+                <%= image_tag 'hero-image.png' %>
+            </aside> 
+    
+        </div>
+        <footer>
+            <div>
+              <p class="desktop">&copy 2021 Copyright Pondok Pesantren Daarul Rahman | Made with <i class="bi bi-heart-fill" style="color: red;"></i> by Abdul Hakim Ghaniy</p>
+              <p class="mobile">&copy 2021 Copyright Pondok Pesantren Daarul Rahman</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

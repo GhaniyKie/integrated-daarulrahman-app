@@ -1,0 +1,140 @@
+article {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-between;
+}
+
+.bill,
+.information {
+    height: 40vh;
+}
+
+.bill .nominal h1,
+.items .item-nominal,
+.information .content p {
+    font-family: 'Lora', serif;
+}
+
+.bill .title h3,
+.information .title h3 {
+    font-size: 2vw;
+    font-weight: 300;
+
+}
+
+/* BILL INFORMATION SECTION*/
+
+.bill {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.bill-information {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+.bill .nominal h1 {
+    font-size: 3.5vw;
+    margin-top: 2%;
+}
+
+.items {
+    font-size: 1vw;
+}
+
+.items .bill-item {
+    margin-bottom: 20px;
+}
+
+.items .item-nominal {
+    font-weight: 700;
+}
+
+/* INFORMATION SECTION */
+
+.information {
+    flex-basis: 45%;
+}
+
+.content {
+    font-size: 1vw;
+    margin-top: 3%;
+    font-weight: 500;
+}
+
+.content .date {
+    font-style: italic;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+/* PAYMENT HISTORIES SECTION */
+
+.payment-history {
+    flex-basis: 100%;
+    margin-top: auto;
+}
+
+.title-history {
+    display: flex;
+    height: 60px;
+}
+
+.title-history h3 {
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 1.6vw;
+    font-weight: 300;
+}
+
+.histories {
+    display: flex;
+    flex-direction: column;    
+}
+
+.history {
+    display: flex;
+    justify-content: space-between;
+    height: 11vh;
+    max-height: 70px;
+    margin-bottom: 15px;
+    background-color: #dfeeea;
+    padding: 0 5% 0 5% ;
+}
+
+.history:hover {
+    color: #fff;
+}
+
+.payment-id,
+.payment-date,
+.payment-nominal,
+.payment-status {
+    display: flex;
+    padding: 1vw;
+    /* margin: 0 3vw; */
+}
+
+.payment-id {
+    flex-basis: 22%;
+}
+
+.payment-date,
+.payment-nominal {
+    flex-basis: 15%;
+    justify-content: center ;
+}
+
+.payment-status {
+    flex-basis: 22%;
+    margin: 0;
+    
+}
+
+.history div p {
+    margin: auto 0 auto 0;
+}

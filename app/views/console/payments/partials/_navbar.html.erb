@@ -1,0 +1,57 @@
+    <header class="box">
+        <div class="container header">
+            <div class="navbar">
+                <div class="hamburger" onclick="openSideNav('dashSideNav')">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div class="sidenav" id="dashSideNav">
+                    <nav>
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeSideNav('dashSideNav')">&times;</a>
+                        <a href="#">Histori Pembayaran</a>
+                        <a href="#">Daftar Tunggakan</a>
+                        <a href="#">Bantuan</a>
+                        <a href="#">Versi Aplikasi</a>
+                    </nav>
+                </div>
+            </div>
+            <div class="logo">
+                <p><%= link_to 'Payment Console App', console_payments_path %></p>
+            </div>
+            <div class="search">
+                <div class="search-form">
+                    <input type="search" name="" id="" placeholder="Cari data pembayaran dengan ID Invoice">
+                </div>
+                <div class="icon">
+                    <span><i class="bi bi-search"></i></span>
+                </div>
+            </div>
+            <div class="profile">
+                <p class="name">Welcome, <%= show_name(true)%></p>
+                <img src="images/mega.jpg" alt="" srcset="" class="avatar" onclick="openCloseElement('profile-menu')">
+            </div>
+
+            <div class="profile-menu box" id="profile-menu" style="display: none;">
+                <div class="profile-detail">
+                    <img src="images/mega.jpg" alt="" class="avatar">
+                    <div class="bio">
+                        <p class="name"><%= show_name %></p>
+                        <p class="email"><%= current_user.email %></p>
+                        <p class="location">6 A Putri, Senoparty</p>
+                    </div>                        
+                </div>
+                <hr>
+                <div class="settings">
+                    <a href="">Pengaturan</a>
+                    <a href="">Edit Data Pribadi</a>
+                </div>
+                <div class="logout">
+                    <form action="<%= root_path %>">
+                        <button class="box">Keluar</button>
+                    </form> 
+                </div>
+            </div>
+    
+        </div>
+    </header>
