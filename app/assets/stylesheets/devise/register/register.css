@@ -52,6 +52,37 @@ button.register {
     margin-top: 25px;
 }
 
+/* CLAIM ACCOUNT (AFTER REGISTRATION) */
+
+.profile-result, .info {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.profile-result {
+    border-collapse: collapse;
+
+}
+
+tr, td {
+    padding: 2% 2% 2% 0;
+    /* border: 1px black solid; */
+}
+
+.data-header {
+    width: 10em;
+    font-weight: bold;
+}
+
+.not-listed {
+    margin-top: 10px;
+}
+
+.error-2-profile, .success-link-profile {
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
 @media screen and (max-width: 1350px) {
     .register-title {
         margin-bottom: 20px;

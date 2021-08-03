@@ -1,0 +1,41 @@
+    <%= form_tag "#{claim_profile_path}?nisn=#{params[:nisn]}", method: :put do %>
+        <div class="result">
+            <table class="profile-result">
+                <tr>
+                    <td class="data-header">Nama</td>
+                    <td><%= @student.name%></td>
+                </tr>
+                <tr>
+                    <td class="data-header">Jenis Kelamin</td>
+                    <td><%= @student.gender.capitalize %></td>
+                </tr>
+                <tr>
+                    <td class="data-header">Angkatan</td>
+                    <td><%= @student.batch %></td>
+                </tr>
+                <tr>
+                    <td class="data-header">Status Pendidikan</td>
+                    <td><%= @student.educational_status.capitalize %></td>
+                </tr>
+                <tr>
+                    <td class="data-header">NIS<span style="font-size: 15px; color: red;">*</span></td>
+                    <td><%= @student.student_number %></td>
+                </tr>
+                <tr>
+                    <td class="data-header">NISN<span style="font-size: 15px; color: red;">**</span></td>
+                    <td><%= @student.nisn %></td>
+                </tr>
+            </table>
+            <div class="info">
+                <p style="font-size: 13px;"><span style="font-size: 15px; color: red;">*</span>Nomor Induk Sekolah</p>
+                <p style="font-size: 13px;"><span style="font-size: 15px; color: red;">**</span>Nomor Induk Siswa Nasional</p>
+            </div>
+            <%# USE button_tag INSTEAD f.button FOR INCLUDING span TAG %>
+            <%= button_tag(type: 'submit', class: "register") do %>
+                <span>Hubungkan</span>
+            <% end %>
+            <div class="registered not-listed">
+                <p>Bukan profil Anda / tidak sesuai ? <a href="#" style="color: forestgreen;">Klik disini</a></p>
+            </div>    
+        </div>    
+    <% end %>

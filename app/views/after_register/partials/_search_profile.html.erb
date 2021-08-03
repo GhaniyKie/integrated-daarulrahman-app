@@ -1,0 +1,7 @@
+    <%= form_tag claim_profile_path, method: :get do %>
+        <div class="field input">
+            <label for="form-register-email">NISN (Nomor Induk Siswa Nasional)</label><br>
+            <%= text_field_tag :nisn, nil, placeholder: '10 Digit NISN' %>
+        </div>        
+        <button class="register" type="submit"><span>Cari</span></button>
+    <% end %>

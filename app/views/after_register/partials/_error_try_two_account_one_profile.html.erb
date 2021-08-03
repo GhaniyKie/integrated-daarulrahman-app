@@ -1,0 +1,14 @@
+    <%= form_tag delete_user_registration_path, method: :delete do %>
+        <div class="result">
+            <div class="error-2-profile">
+                <p><strong>
+                    Mohon maaf, profil ini sudah dikaitkan dengan sebuah akun. Jika Anda lupa akses masuk, silahkan gunakan link dibawah.
+                    Silahkan hapus akun ini lalu kami akan otomatis membawa Anda ke Beranda.
+                </strong></p>
+            </div>
+            <button class="register" type="submit"><span>Hapus akun ini</span></button>
+            <div class="registered not-listed">
+                <p>Bukan Anda / lupa akses masuk ? <a href="#" style="color: forestgreen;">Klik disini</a></p>
+            </div>    
+        </div>
+    <% end %>

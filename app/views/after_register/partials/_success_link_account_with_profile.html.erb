@@ -1,0 +1,12 @@
+    <%= form_tag root_path, method: :get do %>
+        <div class="result">
+            <div class="success-link-profile">
+                <p>Selamat, akun Anda berhasil dikaitkan dengan profil: </p><br />
+                <p><strong><%= @student.name%></strong>.</p>
+            </div>
+            <button class="register" type="submit"><span>Ke Beranda</span></button>
+            <%# <div class="registered not-listed">
+                <p>Bukan Anda / lupa akses masuk ? <a href="#" style="color: forestgreen;">Klik disini</a></p>
+            </div>     %>
+        </div>        
+    <% end %>
