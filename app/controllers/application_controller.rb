@@ -16,10 +16,10 @@ class ApplicationController < ActionController::Base
         request.format.json?
     end
 
-    # Get Profile from Current User (Admin atau Santri)
+    # Get Profile from Current User (Bendahara atau Santri)
     def from_current_user
         id = current_user.id
-        user ||= Student.find_by(user_id: id) || Admin.find_by(user_id: id)
+        user ||= Student.find_by(user_id: id) || Exchequer.find_by(user_id: id)
     end
 
     # TODO:

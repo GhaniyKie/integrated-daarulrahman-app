@@ -29,7 +29,7 @@
                     <p>Daftar untuk kemudahan transaksi dan informasi pembayaran pesantren</p>
                 </section>
                 <section class="register form">
-                    <%= form_for resource, as: resource_name, url: registration_path(resource_name) do |f| %>
+                    <%= form_for resource, as: resource_name, url: new_user_registration_path do |f| %>
                         <%= render "devise/shared/error_messages", resource: resource %> <!--CARI TAU KEGUNAANNYA--> 
                         <div class="field input">
                             <%= f.label :email %>

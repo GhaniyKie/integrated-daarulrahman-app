@@ -4,11 +4,13 @@ class Student < ApplicationRecord
   friendly_id :name, use: [:slugged, :finders]
   
   # Keterangan angka di tabel
-  enum gender:		{ man: 1, woman: 2 }
-  enum educational_status:	{ active: 1, graduated: 2, stopped: 3 }
+  enum gender:		{ pria: 1, wanita: 2 }
+  enum educational_status:	{ aktif: 1, lulus: 2, berhenti: 3 }
 
   # Relasi dengan entitas User
-  belongs_to :user
+  # Sejak Rails 5, asosiasi belongs_to diwajibkan untuk ada secara default.
+  # Untuk mem-bypass behaviour ini gunakan optional: true
+  belongs_to :user, optional: true
 
   # Relasi antar entitas Payments dan Unpaid Payments
   # has_many  :payments
