@@ -1,5 +1,5 @@
 class Invoice < ApplicationRecord
-    # FriendlyId digunakan untuk membuat tampilan URL ketika menampilkan antar entitas tidak menggunakan ID bawaan Rails
+    # Digunakan untuk mengganti tampilan ID bawaan Rails dengan tampilan ID Custom
     extend FriendlyId
     friendly_id :reference_number, use: [:slugged, :finders]
 
@@ -7,8 +7,8 @@ class Invoice < ApplicationRecord
     belongs_to :student
     belongs_to :exchequer
     
-    has_many :invoice_items_details
-    has_many :expenses, through: :invoice_items_details
+    has_many :invoice_items_details, dependent: :destroy
+    # has_many :expenses, through: :invoice_items_details
 
     validate :ensure_generate_reference_number
 

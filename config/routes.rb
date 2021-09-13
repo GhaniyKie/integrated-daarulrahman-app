@@ -42,8 +42,12 @@ Rails.application.routes.draw do
   put 'claim_profile', to: 'after_register#connect_account_with_profile'
   # ====================================================== #
   namespace :console do
-    # resources :payments
-    get "payments", to: "payments#index"
+    namespace :division do
+      get "exchequers", to: "exchequers#index"
+    end
+    namespace :student do
+      get "payments", to: "payments#index"
+    end
   end
 
   devise_for :users, skip: [:sessions, :registration]

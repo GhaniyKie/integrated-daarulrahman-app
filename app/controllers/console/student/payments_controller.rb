@@ -1,4 +1,4 @@
-class Console::PaymentsController < ApplicationController
+class Console::Student::PaymentsController < ApplicationController
     before_action :authenticate_user!
 
     # Dashboard untuk Bendahara, Santri
@@ -6,12 +6,12 @@ class Console::PaymentsController < ApplicationController
         student = from_current_user
 
         @invoices = student.invoices
-        @payment_types = student.payment_type
-        @payments_histories = student.payments
+        # @payment_types = student.payment_type
+        # @payments_histories = student.payments
 
 
-        @loans_details = @payment_types.group(:jenis_pembayaran).sum(:nominal_biaya)
-        @loans_total = @loans_details.sum{|k, v| a = 0; a += v}
+        # @loans_details = @payment_types.group(:jenis_pembayaran).sum(:nominal_biaya)
+        # @loans_total = @loans_details.sum{|k, v| a = 0; a += v}
     end
 
     def index_invoice

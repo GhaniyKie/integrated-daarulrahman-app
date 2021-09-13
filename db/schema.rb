@@ -43,6 +43,11 @@ ActiveRecord::Schema.define(version: 2021_08_01_120204) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "exchequers", force: :cascade do |t|
     t.string "name"
     t.string "user_id"
@@ -57,7 +62,9 @@ ActiveRecord::Schema.define(version: 2021_08_01_120204) do
   create_table "invoice_items_details", force: :cascade do |t|
     t.bigint "expense_id"
     t.bigint "invoice_id"
+    t.bigint "cart_id"
     t.integer "quantity"
+    t.index ["cart_id"], name: "index_invoice_items_details_on_cart_id"
     t.index ["expense_id"], name: "index_invoice_items_details_on_expense_id"
     t.index ["invoice_id"], name: "index_invoice_items_details_on_invoice_id"
   end

@@ -24,7 +24,12 @@ class PaymentSystem < ActiveRecord::Migration[6.1]
     create_table    :invoice_items_details do |t|
       t.belongs_to  :expense
       t.belongs_to  :invoice
+      t.belongs_to  :cart
       t.integer     :quantity
+    end
+
+    create_table    :carts do |t|
+      t.timestamps
     end
 
     add_index :invoices, :transaction_id

@@ -14,7 +14,7 @@ class Student < ApplicationRecord
 
   # Relasi antar entitas Payments dan Unpaid Payments
   # has_many  :payments
-  has_many  :invoices
+  has_many  :invoices, dependent: :destroy
   # has_many  :payment_type, through: :invoices
 
   validates :name, presence: { message: "Nama tidak boleh kosong" }

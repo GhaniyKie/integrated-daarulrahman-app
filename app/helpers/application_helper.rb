@@ -20,9 +20,9 @@ module ApplicationHelper
 
     def show_name(aliases=false)        
         if aliases == false
-            from_current_user.nama
+            from_current_user.name
         elsif aliases == true
-            alias_middle_name(from_current_user.nama)
+            alias_middle_name(from_current_user.name)
         else
             "Anonim"
         end
